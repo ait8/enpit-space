@@ -20,6 +20,8 @@ class ViewController: UIViewController, MPMediaPickerControllerDelegate {
         // Do any additional setup after loading the view, typically from a nib.
         
         configureNexturn()
+        
+        configureNexturnNotification()
         configureMusicNotification()
     }
 
@@ -30,6 +32,10 @@ class ViewController: UIViewController, MPMediaPickerControllerDelegate {
     
     private func configureMusicNotification() {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "playMusic:", name: "didReceiveMusicNotification", object: nil)        
+    }
+
+    private func configureNexturnNotification() {
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "playNexturn:", name: "didReceiveNexturnNotification", object: nil)
     }
     
     private func configureMediaPicker() {
@@ -67,6 +73,11 @@ class ViewController: UIViewController, MPMediaPickerControllerDelegate {
             musicPlayer.setQueueWithItemCollection(mediaItemCollection)
             musicPlayer.play()
         }
+    }
+
+    func playNexturn(notification: NSNotification) {
+        // FIXME: 点灯プログラムを変更する
+        centralManager.ledButtonTapped(2)
     }
     
     @IBAction func didTouchSelectMusicButton(sender: UIButton) {

@@ -312,7 +312,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "d26a04fd-4eb3-4405-a7c5-f086231eda3f";
+				PROVISIONING_PROFILE = "69fdb449-3f84-4690-af79-aeaa8ec207cc";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -368,7 +368,7 @@
 				INFOPLIST_FILE = "enpit-space/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "d26a04fd-4eb3-4405-a7c5-f086231eda3f";
+				PROVISIONING_PROFILE = "69fdb449-3f84-4690-af79-aeaa8ec207cc";
 			};
 			name = Debug;
 		};

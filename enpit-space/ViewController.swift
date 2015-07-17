@@ -12,6 +12,9 @@ import MediaPlayer
 class ViewController: UIViewController, MPMediaPickerControllerDelegate {
 
     @IBOutlet private weak var musicTitleLabel: UILabel!
+    @IBOutlet private weak var teamLabel: UILabel!
+    @IBOutlet private weak var keywordLabel: UILabel!
+    
     private var mediaItemCollection: MPMediaItemCollection?
     private var centralManager = CentralManager.alloc()
     

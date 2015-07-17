@@ -19,7 +19,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="キーワード" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vyr-ox-mg6">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="キーワード" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vyr-ox-mg6">
                                 <rect key="frame" x="16" y="393" width="568" height="99"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="99" id="jrd-0O-Y8S"/>
@@ -55,7 +55,7 @@
                                     <action selector="didTouchSelectMusicButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dHs-dp-JmS"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="チーム名" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vRk-tZ-6gn">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="チーム名" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vRk-tZ-6gn">
                                 <rect key="frame" x="16" y="157" width="568" height="79"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="79" id="Vh8-GC-TMY"/>
@@ -86,7 +86,9 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="keywordLabel" destination="Vyr-ox-mg6" id="hpl-x7-Eti"/>
                         <outlet property="musicTitleLabel" destination="5gA-f5-phr" id="S1M-wK-V2V"/>
+                        <outlet property="teamLabel" destination="vRk-tZ-6gn" id="jy9-xF-h2k"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

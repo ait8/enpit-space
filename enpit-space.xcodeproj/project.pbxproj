@@ -13,6 +13,8 @@
 		BE8935391B58DBA6007C8CF7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE8935381B58DBA6007C8CF7 /* Images.xcassets */; };
 		BE89353C1B58DBA6007C8CF7 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE89353A1B58DBA6007C8CF7 /* LaunchScreen.xib */; };
 		BE8935481B58DBA6007C8CF7 /* enpit_spaceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE8935471B58DBA6007C8CF7 /* enpit_spaceTests.swift */; };
+		BE8935521B58DD02007C8CF7 /* CentralManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE8935511B58DD02007C8CF7 /* CentralManager.swift */; };
+		BE8935541B58DD21007C8CF7 /* NexturnObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE8935531B58DD21007C8CF7 /* NexturnObject.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +38,8 @@
 		BE8935411B58DBA6007C8CF7 /* enpit-spaceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "enpit-spaceTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE8935461B58DBA6007C8CF7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BE8935471B58DBA6007C8CF7 /* enpit_spaceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = enpit_spaceTests.swift; sourceTree = "<group>"; };
+		BE8935511B58DD02007C8CF7 /* CentralManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CentralManager.swift; sourceTree = "<group>"; };
+		BE8935531B58DD21007C8CF7 /* NexturnObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NexturnObject.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +83,8 @@
 			children = (
 				BE8935311B58DBA6007C8CF7 /* AppDelegate.swift */,
 				BE8935331B58DBA6007C8CF7 /* ViewController.swift */,
+				BE8935511B58DD02007C8CF7 /* CentralManager.swift */,
+				BE8935531B58DD21007C8CF7 /* NexturnObject.swift */,
 				BE8935351B58DBA6007C8CF7 /* Main.storyboard */,
 				BE8935381B58DBA6007C8CF7 /* Images.xcassets */,
 				BE89353A1B58DBA6007C8CF7 /* LaunchScreen.xib */,
@@ -213,7 +219,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				BE8935341B58DBA6007C8CF7 /* ViewController.swift in Sources */,
+				BE8935541B58DD21007C8CF7 /* NexturnObject.swift in Sources */,
 				BE8935321B58DBA6007C8CF7 /* AppDelegate.swift in Sources */,
+				BE8935521B58DD02007C8CF7 /* CentralManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -411,6 +419,7 @@
 				BE89354D1B58DBA6007C8CF7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		BE89354E1B58DBA6007C8CF7 /* Build configuration list for PBXNativeTarget "enpit-spaceTests" */ = {
 			isa = XCConfigurationList;
@@ -419,6 +428,7 @@
 				BE8935501B58DBA6007C8CF7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

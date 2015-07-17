@@ -17,6 +17,7 @@ class ViewController: UIViewController, MPMediaPickerControllerDelegate {
     
     private var mediaItemCollection: MPMediaItemCollection?
     private var centralManager = CentralManager.alloc()
+    private let musicPlayer = MPMusicPlayerController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -86,7 +87,6 @@ class ViewController: UIViewController, MPMediaPickerControllerDelegate {
     
     func playMusic(notification: NSNotification) {
         if let mediaItemCollection = mediaItemCollection {
-            let musicPlayer = MPMusicPlayerController()
             musicPlayer.setQueueWithItemCollection(mediaItemCollection)
             musicPlayer.play()
         }
@@ -95,6 +95,10 @@ class ViewController: UIViewController, MPMediaPickerControllerDelegate {
     func playNexturn(notification: NSNotification) {
         // FIXME: 点灯プログラムを変更する
         centralManager.ledButtonTapped(2)
+    }
+    
+    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+        musicPlayer.stop()
     }
     
     @IBAction func didTouchSelectMusicButton(sender: UIButton) {

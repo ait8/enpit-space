@@ -16,6 +16,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        
+        // Compatible for iOS7 and iOS8
+        if application.respondsToSelector("isRegisteredForRemoteNotifications") {
+            let types: UIUserNotificationType = UIUserNotificationType.Badge | UIUserNotificationType.Sound | UIUserNotificationType.Alert
+            application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: types, categories: nil))
+            application.registerForRemoteNotifications()
+        } else {
+            application.registerForRemoteNotificationTypes(UIRemoteNotificationType.Badge | UIRemoteNotificationType.Sound | UIRemoteNotificationType.Alert)
+        }
+        
         return true
     }
 
@@ -41,6 +51,36 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
+    func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError) {
+        println("error: \(error)")
+    }
+    
+    func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
+        let deviceToken = deviceToken.description
+        
+        let userDefaults = NSUserDefaults.standardUserDefaults()
+        userDefaults.setObject(deviceToken, forKey:"deviceToken")
+        userDefaults.synchronize()
+        
+        // TODO: APIでデバイストークンを送信
+    }
+    
+    func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
+        // TODO: 音楽を鳴らす
+        
+        switch application.applicationState {
+        case .Active:
+            println("Active")
+        case .Inactive:
+            println("Inactive")
+        case .Background:
+            println("background")
+        }
+    }
+    
+    func application(application: UIApplication, handleActionWithIdentifier identifier: String?, forRemoteNotification userInfo: [NSObject : AnyObject], completionHandler: () -> Void) {
+        completionHandler()
+    }
 
 }
 

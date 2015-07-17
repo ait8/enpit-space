@@ -88,6 +88,7 @@ class ViewController: UIViewController, MPMediaPickerControllerDelegate {
     func playMusic(notification: NSNotification) {
         if let mediaItemCollection = mediaItemCollection {
             musicPlayer.setQueueWithItemCollection(mediaItemCollection)
+            musicPlayer.stop()
             musicPlayer.play()
         }
     }

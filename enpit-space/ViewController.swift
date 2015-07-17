@@ -99,6 +99,9 @@ class ViewController: UIViewController, MPMediaPickerControllerDelegate {
     
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
         musicPlayer.stop()
+        
+        // FIXME: メソッド名変える
+        centralManager.ledButtonTapped(6)
     }
     
     @IBAction func didTouchSelectMusicButton(sender: UIButton) {

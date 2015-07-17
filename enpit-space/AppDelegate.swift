@@ -71,6 +71,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         let nexturnNotification = NSNotification(name: "didReceiveNexturnNotification", object: self, userInfo: nil)
         NSNotificationCenter.defaultCenter().postNotification(nexturnNotification)
+
+        let payloadNotification = NSNotification(name: "didReceivePayloadNotification", object: self, userInfo: userInfo)
+        NSNotificationCenter.defaultCenter().postNotification(payloadNotification)
         
         switch application.applicationState {
         case .Active:

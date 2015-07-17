@@ -24,6 +24,7 @@ class ViewController: UIViewController, MPMediaPickerControllerDelegate {
         
         configureNexturn()
         
+        configurePayloadNotification()
         configureNexturnNotification()
         configureMusicNotification()
     }
@@ -31,6 +32,10 @@ class ViewController: UIViewController, MPMediaPickerControllerDelegate {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    private func configurePayloadNotification() {
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "parsePayload:", name: "didReceivePayloadNotification", object: nil)
     }
     
     private func configureMusicNotification() {
@@ -68,6 +73,15 @@ class ViewController: UIViewController, MPMediaPickerControllerDelegate {
         self.mediaItemCollection = mediaItemCollection
 
         dismissViewControllerAnimated(true, completion: nil)
+    }
+
+    func parsePayload(notification: NSNotification) {
+        if let teamText = notification.userInfo!["team"] as? String {
+            teamLabel.text = teamText
+        }
+        if let keywordText = notification.userInfo!["keyword"] as? String {
+            keywordLabel.text = keywordText
+        }
     }
     
     func playMusic(notification: NSNotification) {

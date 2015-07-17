@@ -11,11 +11,11 @@ import MediaPlayer
 
 class ViewController: UIViewController, MPMediaPickerControllerDelegate {
 
+    @IBOutlet private weak var musicTitleLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
-        configureMediaPicker()
     }
 
     override func didReceiveMemoryWarning() {
@@ -41,9 +41,16 @@ class ViewController: UIViewController, MPMediaPickerControllerDelegate {
         let artistName = item.valueForProperty(MPMediaItemPropertyArtist) as! String
         let albumName = item.valueForProperty(MPMediaItemPropertyAlbumTitle) as! String
         
+        musicTitleLabel.text = title
+        
         let musicPlayer = MPMusicPlayerController()
         musicPlayer.setQueueWithItemCollection(mediaItemCollection)
         musicPlayer.play()
+        
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    @IBAction func didTouchSelectMusicButton(sender: UIButton) {
+        configureMediaPicker()
     }
 }
-

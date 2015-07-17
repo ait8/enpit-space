@@ -13,20 +13,9 @@
 		BE8935371B58DBA6007C8CF7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE8935351B58DBA6007C8CF7 /* Main.storyboard */; };
 		BE8935391B58DBA6007C8CF7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE8935381B58DBA6007C8CF7 /* Images.xcassets */; };
 		BE89353C1B58DBA6007C8CF7 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE89353A1B58DBA6007C8CF7 /* LaunchScreen.xib */; };
-		BE8935481B58DBA6007C8CF7 /* enpit_spaceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE8935471B58DBA6007C8CF7 /* enpit_spaceTests.swift */; };
 		BE8935521B58DD02007C8CF7 /* CentralManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE8935511B58DD02007C8CF7 /* CentralManager.swift */; };
 		BE8935541B58DD21007C8CF7 /* NexturnObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE8935531B58DD21007C8CF7 /* NexturnObject.swift */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		BE8935421B58DBA6007C8CF7 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BE8935241B58DBA6007C8CF7 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = BE89352B1B58DBA6007C8CF7;
-			remoteInfo = "enpit-space";
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		13534326143634D43FDBC6D8 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -39,7 +28,6 @@
 		BE8935361B58DBA6007C8CF7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BE8935381B58DBA6007C8CF7 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		BE89353B1B58DBA6007C8CF7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		BE8935411B58DBA6007C8CF7 /* enpit-spaceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "enpit-spaceTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE8935461B58DBA6007C8CF7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BE8935471B58DBA6007C8CF7 /* enpit_spaceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = enpit_spaceTests.swift; sourceTree = "<group>"; };
 		BE8935511B58DD02007C8CF7 /* CentralManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CentralManager.swift; sourceTree = "<group>"; };
@@ -52,13 +40,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				9ABB989962DCE4ECF8568D16 /* Pods.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		BE89353E1B58DBA6007C8CF7 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -88,7 +69,6 @@
 			isa = PBXGroup;
 			children = (
 				BE89352C1B58DBA6007C8CF7 /* enpit-space.app */,
-				BE8935411B58DBA6007C8CF7 /* enpit-spaceTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -165,24 +145,6 @@
 			productReference = BE89352C1B58DBA6007C8CF7 /* enpit-space.app */;
 			productType = "com.apple.product-type.application";
 		};
-		BE8935401B58DBA6007C8CF7 /* enpit-spaceTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = BE89354E1B58DBA6007C8CF7 /* Build configuration list for PBXNativeTarget "enpit-spaceTests" */;
-			buildPhases = (
-				BE89353D1B58DBA6007C8CF7 /* Sources */,
-				BE89353E1B58DBA6007C8CF7 /* Frameworks */,
-				BE89353F1B58DBA6007C8CF7 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				BE8935431B58DBA6007C8CF7 /* PBXTargetDependency */,
-			);
-			name = "enpit-spaceTests";
-			productName = "enpit-spaceTests";
-			productReference = BE8935411B58DBA6007C8CF7 /* enpit-spaceTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -194,10 +156,7 @@
 				TargetAttributes = {
 					BE89352B1B58DBA6007C8CF7 = {
 						CreatedOnToolsVersion = 6.4;
-					};
-					BE8935401B58DBA6007C8CF7 = {
-						CreatedOnToolsVersion = 6.4;
-						TestTargetID = BE89352B1B58DBA6007C8CF7;
+						DevelopmentTeam = 52ZSVX3TML;
 					};
 				};
 			};
@@ -215,7 +174,6 @@
 			projectRoot = "";
 			targets = (
 				BE89352B1B58DBA6007C8CF7 /* enpit-space */,
-				BE8935401B58DBA6007C8CF7 /* enpit-spaceTests */,
 			);
 		};
 /* End PBXProject section */
@@ -228,13 +186,6 @@
 				BE8935371B58DBA6007C8CF7 /* Main.storyboard in Resources */,
 				BE89353C1B58DBA6007C8CF7 /* LaunchScreen.xib in Resources */,
 				BE8935391B58DBA6007C8CF7 /* Images.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		BE89353F1B58DBA6007C8CF7 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -300,23 +251,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		BE89353D1B58DBA6007C8CF7 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				BE8935481B58DBA6007C8CF7 /* enpit_spaceTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		BE8935431B58DBA6007C8CF7 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = BE89352B1B58DBA6007C8CF7 /* enpit-space */;
-			targetProxy = BE8935421B58DBA6007C8CF7 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		BE8935351B58DBA6007C8CF7 /* Main.storyboard */ = {
@@ -377,7 +312,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "5326bcbc-e5ad-4855-ba01-9d53c67245bc";
+				PROVISIONING_PROFILE = "d26a04fd-4eb3-4405-a7c5-f086231eda3f";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -416,7 +351,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PROVISIONING_PROFILE = "5326bcbc-e5ad-4855-ba01-9d53c67245bc";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -428,10 +363,12 @@
 			baseConfigurationReference = AF1E91A3BDA4C07C7B399E00 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "enpit-space/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "5326bcbc-e5ad-4855-ba01-9d53c67245bc";
+				PROVISIONING_PROFILE = "d26a04fd-4eb3-4405-a7c5-f086231eda3f";
 			};
 			name = Debug;
 		};
@@ -440,44 +377,12 @@
 			baseConfigurationReference = 9ABDA34C841C2C5D6D9FA693 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "enpit-space/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "5326bcbc-e5ad-4855-ba01-9d53c67245bc";
-			};
-			name = Release;
-		};
-		BE89354F1B58DBA6007C8CF7 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "enpit-spaceTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/enpit-space.app/enpit-space";
-			};
-			name = Debug;
-		};
-		BE8935501B58DBA6007C8CF7 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "enpit-spaceTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/enpit-space.app/enpit-space";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
@@ -498,15 +403,6 @@
 			buildConfigurations = (
 				BE89354C1B58DBA6007C8CF7 /* Debug */,
 				BE89354D1B58DBA6007C8CF7 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		BE89354E1B58DBA6007C8CF7 /* Build configuration list for PBXNativeTarget "enpit-spaceTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				BE89354F1B58DBA6007C8CF7 /* Debug */,
-				BE8935501B58DBA6007C8CF7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

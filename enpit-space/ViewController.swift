@@ -13,11 +13,13 @@ class ViewController: UIViewController, MPMediaPickerControllerDelegate {
 
     @IBOutlet private weak var musicTitleLabel: UILabel!
     private var mediaItemCollection: MPMediaItemCollection?
+    private var centralManager = CentralManager.alloc()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        configureNexturn()
         configureMusicNotification()
     }
 
@@ -35,6 +37,11 @@ class ViewController: UIViewController, MPMediaPickerControllerDelegate {
         mediaPickerController.delegate = self
         mediaPickerController.allowsPickingMultipleItems = false
         presentViewController(mediaPickerController, animated: true, completion: nil)
+    }
+    
+    private func configureNexturn() {
+        let queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
+        centralManager = CentralManager(delegate: self.centralManager, queue: queue, options: nil)
     }
     
     func mediaPickerDidCancel(mediaPicker: MPMediaPickerController!) {

@@ -66,7 +66,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
-        // TODO: 音楽を鳴らす
+        // TODO: 電球光らせる
+        
+        let musicNotification = NSNotification(name: "didReceiveMusicNotification", object: self, userInfo: nil)
+        NSNotificationCenter.defaultCenter().postNotification(musicNotification)
         
         switch application.applicationState {
         case .Active:

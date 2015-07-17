@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9ABB989962DCE4ECF8568D16 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13534326143634D43FDBC6D8 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		BE8935321B58DBA6007C8CF7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE8935311B58DBA6007C8CF7 /* AppDelegate.swift */; };
 		BE8935341B58DBA6007C8CF7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE8935331B58DBA6007C8CF7 /* ViewController.swift */; };
 		BE8935371B58DBA6007C8CF7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE8935351B58DBA6007C8CF7 /* Main.storyboard */; };
@@ -28,6 +29,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		13534326143634D43FDBC6D8 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9ABDA34C841C2C5D6D9FA693 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		AF1E91A3BDA4C07C7B399E00 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		BE89352C1B58DBA6007C8CF7 /* enpit-space.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "enpit-space.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE8935301B58DBA6007C8CF7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BE8935311B58DBA6007C8CF7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -47,6 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9ABB989962DCE4ECF8568D16 /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -60,12 +65,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		87E35C8AAA327B2DC92C005B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				13534326143634D43FDBC6D8 /* Pods.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		BE8935231B58DBA6007C8CF7 = {
 			isa = PBXGroup;
 			children = (
 				BE89352E1B58DBA6007C8CF7 /* enpit-space */,
 				BE8935441B58DBA6007C8CF7 /* enpit-spaceTests */,
 				BE89352D1B58DBA6007C8CF7 /* Products */,
+				F1127DB22C9DF2CE4FA934BB /* Pods */,
+				87E35C8AAA327B2DC92C005B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -118,6 +133,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		F1127DB22C9DF2CE4FA934BB /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				AF1E91A3BDA4C07C7B399E00 /* Pods.debug.xcconfig */,
+				9ABDA34C841C2C5D6D9FA693 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -125,9 +149,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BE89354B1B58DBA6007C8CF7 /* Build configuration list for PBXNativeTarget "enpit-space" */;
 			buildPhases = (
+				31103DC7EBB2A0965585DFFD /* Check Pods Manifest.lock */,
 				BE8935281B58DBA6007C8CF7 /* Sources */,
 				BE8935291B58DBA6007C8CF7 /* Frameworks */,
 				BE89352A1B58DBA6007C8CF7 /* Resources */,
+				5038386C04AB475840C79FF2 /* Embed Pods Frameworks */,
+				A988695B737E40F8E4BF6075 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -212,6 +239,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		31103DC7EBB2A0965585DFFD /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		5038386C04AB475840C79FF2 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A988695B737E40F8E4BF6075 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		BE8935281B58DBA6007C8CF7 /* Sources */ = {
@@ -350,6 +425,7 @@
 		};
 		BE89354C1B58DBA6007C8CF7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AF1E91A3BDA4C07C7B399E00 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "enpit-space/Info.plist";
@@ -361,6 +437,7 @@
 		};
 		BE89354D1B58DBA6007C8CF7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9ABDA34C841C2C5D6D9FA693 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "enpit-space/Info.plist";

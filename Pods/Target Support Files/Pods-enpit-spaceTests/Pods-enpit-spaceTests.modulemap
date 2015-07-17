@@ -1,0 +1,6 @@
+framework module Pods_enpit_spaceTests {
+  umbrella header "Pods-enpit-spaceTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

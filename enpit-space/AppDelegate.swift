@@ -61,8 +61,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let userDefaults = NSUserDefaults.standardUserDefaults()
         userDefaults.setObject(deviceToken, forKey:"deviceToken")
         userDefaults.synchronize()
-        
-        // TODO: APIでデバイストークンを送信
     }
     
     func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {

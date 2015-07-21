@@ -17,16 +17,33 @@ class NexturnObject: NSObject, CBPeripheralDelegate {
     var peripheral: CBPeripheral?
     private var characteristicArray = [CBCharacteristic]()
     
+    private var ledPattern = [ledButtonTag.Red,    ledButtonTag.Off,
+                              ledButtonTag.Yellow, ledButtonTag.Off,
+                              ledButtonTag.Green,  ledButtonTag.Off,
+                              ledButtonTag.Cyan,   ledButtonTag.Off,
+                              ledButtonTag.Blue,   ledButtonTag.Off,
+                              ledButtonTag.Purple, ledButtonTag.Off]
+    
+    private var ledPatternIndex = 0
+    
     private enum ledButtonTag: Int {
-        case Red, Green, Blue, White, Random, Off
+        case Red, Yellow, Green, Cyan, Blue, Purple, Off
         
         private var type: NSData {
             get {
                 switch self {
-                case .Red, .Green, .Blue, .White:
-                    return createLedData(UInt8(arc4random_uniform(255)))
-                case .Random:
-                    return createLedData(arc4random_uniform(UInt32.max))
+                case .Red:
+                    return createLedData(UInt32(0xFF000000))
+                case .Yellow:
+                    return createLedData(UInt32(0xFFFF0000))
+                case .Green:
+                    return createLedData(UInt32(0x00FF0000))
+                case .Cyan:
+                    return createLedData(UInt32(0x00FFFF00))
+                case .Blue:
+                    return createLedData(UInt32(0x0000FF00))
+                case .Purple:
+                    return createLedData(UInt32(0xFF00FF00))
                 case .Off:
                     return createLedData(UInt32(0))
                 }
@@ -42,22 +59,22 @@ class NexturnObject: NSObject, CBPeripheralDelegate {
             
             return NSData(bytes: &data, length: 4)
         }
-        
-        func createLedData(hexData: UInt8) -> NSData {
-            var data = UInt8(hexData)
-            
-            return NSData(bytes: &data, length: 1)
-        }
     }
     
-    func ledButtonTapped(tag: NSInteger) {
-        let buttonTag = ledButtonTag(rawValue: tag)!
-        
-        switch buttonTag {
-        case .Red, .Green, .Blue, .White:
-            self.peripheral?.writeValue(buttonTag.type, forCharacteristic: characteristicArray[tag], type: .WithResponse)
-        case .Random, .Off:
-            self.peripheral?.writeValue(buttonTag.type, forCharacteristic: characteristicArray[4], type: .WithResponse)
+    func play() {
+        if peripheral?.state == CBPeripheralState.Connected {
+            peripheral?.writeValue(ledPattern[ledPatternIndex].type, forCharacteristic: characteristicArray[4], type: .WithResponse)
+            ledPatternIndex++
+            if ledPatternIndex >= ledPattern.count {
+                ledPatternIndex = 0
+            }
+        }
+    }
+
+    func stop() {
+        if peripheral?.state == CBPeripheralState.Connected {
+            peripheral?.writeValue(ledButtonTag.Off.type, forCharacteristic: characteristicArray[4], type: .WithResponse)
+            ledPatternIndex = 0
         }
     }
     

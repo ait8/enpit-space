@@ -55,10 +55,15 @@ class CentralManager: CBCentralManager, CBCentralManagerDelegate {
         }
     }
     
-    // MARK: - Call from IBAction
-    func ledButtonTapped(tag: NSInteger) {
+    func play() {
         for nexturnObject in nexturnObjectArray {
-            nexturnObject.ledButtonTapped(tag)
+            nexturnObject.play()
+        }
+    }
+    
+    func stop() {
+        for nexturnObject in nexturnObjectArray {
+            nexturnObject.stop()
         }
     }
 }

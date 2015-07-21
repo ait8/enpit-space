@@ -17,6 +17,7 @@ class ViewController: UIViewController, MPMediaPickerControllerDelegate {
     
     private var mediaItemCollection: MPMediaItemCollection?
     private var centralManager = CentralManager.alloc()
+    private var nexturnTimers: [NSTimer]?
     private let musicPlayer = MPMusicPlayerController()
     
     override func viewDidLoad() {
@@ -94,15 +95,30 @@ class ViewController: UIViewController, MPMediaPickerControllerDelegate {
     }
 
     func playNexturn(notification: NSNotification) {
-        // FIXME: 点灯プログラムを変更する
-        centralManager.ledButtonTapped(2)
+        resumeNexturnTimer()
     }
     
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
         musicPlayer.stop()
-        
-        // FIXME: メソッド名変える
-        centralManager.ledButtonTapped(6)
+        pauseNexturnTimer()
+        centralManager.stop()
+    }
+    
+    private func resumeNexturnTimer() {
+        if nexturnTimers == nil {
+            nexturnTimers = []
+        }
+        nexturnTimers?.append(NSTimer.scheduledTimerWithTimeInterval(2.0, target: centralManager, selector: Selector("play"), userInfo: nil, repeats: true))
+    }
+    
+    private func pauseNexturnTimer() {
+        if let nexturnTimers = nexturnTimers {
+            for nexturnTimer in nexturnTimers {
+                nexturnTimer.invalidate()
+            }
+        }
+        nexturnTimers?.removeAll(keepCapacity: false)
+        nexturnTimers = nil
     }
     
     @IBAction func didTouchSelectMusicButton(sender: UIButton) {

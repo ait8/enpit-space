@@ -66,4 +66,12 @@ class CentralManager: CBCentralManager, CBCentralManagerDelegate {
             nexturnObject.stop()
         }
     }
+    
+    func reconnectPeripheral() {
+        for nexturnObject in nexturnObjectArray {
+            if nexturnObject.peripheral?.state != CBPeripheralState.Connected {
+                connectPeripheral(nexturnObject.peripheral, options: nil)
+            }
+        }
+    }
 }

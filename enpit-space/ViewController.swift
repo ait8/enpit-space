@@ -124,6 +124,14 @@ class ViewController: UIViewController, MPMediaPickerControllerDelegate {
         centralManager.stop()
     }
     
+    override func canBecomeFirstResponder() -> Bool {
+        return true
+    }
+    
+    override func motionBegan(motion: UIEventSubtype, withEvent event: UIEvent) {
+        centralManager.reconnectPeripheral()
+    }
+    
     private func resumeNexturnTimer() {
         if nexturnTimers == nil {
             nexturnTimers = []

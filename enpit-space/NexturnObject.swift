@@ -17,16 +17,16 @@ class NexturnObject: NSObject, CBPeripheralDelegate {
     var peripheral: CBPeripheral?
     private var characteristicArray = [CBCharacteristic]()
     
-    private var ledPattern = [ledButtonTag.Red,    ledButtonTag.Off,
-                              ledButtonTag.Yellow, ledButtonTag.Off,
-                              ledButtonTag.Green,  ledButtonTag.Off,
-                              ledButtonTag.Cyan,   ledButtonTag.Off,
-                              ledButtonTag.Blue,   ledButtonTag.Off,
-                              ledButtonTag.Purple, ledButtonTag.Off]
+    private var ledPatternList = [ledPattern.Red,    ledPattern.Off,
+                                  ledPattern.Yellow, ledPattern.Off,
+                                  ledPattern.Green,  ledPattern.Off,
+                                  ledPattern.Cyan,   ledPattern.Off,
+                                  ledPattern.Blue,   ledPattern.Off,
+                                  ledPattern.Purple, ledPattern.Off]
     
     private var ledPatternIndex = 0
     
-    private enum ledButtonTag: Int {
+    private enum ledPattern: Int {
         case Red, Yellow, Green, Cyan, Blue, Purple, Off
         
         private var type: NSData {
@@ -63,9 +63,9 @@ class NexturnObject: NSObject, CBPeripheralDelegate {
     
     func play() {
         if peripheral?.state == CBPeripheralState.Connected {
-            peripheral?.writeValue(ledPattern[ledPatternIndex].type, forCharacteristic: characteristicArray[4], type: .WithResponse)
+            peripheral?.writeValue(ledPatternList[ledPatternIndex].type, forCharacteristic: characteristicArray[4], type: .WithResponse)
             ledPatternIndex++
-            if ledPatternIndex >= ledPattern.count {
+            if ledPatternIndex >= ledPatternList.count {
                 ledPatternIndex = 0
             }
         }
@@ -73,7 +73,7 @@ class NexturnObject: NSObject, CBPeripheralDelegate {
 
     func stop() {
         if peripheral?.state == CBPeripheralState.Connected {
-            peripheral?.writeValue(ledButtonTag.Off.type, forCharacteristic: characteristicArray[4], type: .WithResponse)
+            peripheral?.writeValue(ledPattern.Off.type, forCharacteristic: characteristicArray[4], type: .WithResponse)
             ledPatternIndex = 0
         }
     }

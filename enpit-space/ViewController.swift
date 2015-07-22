@@ -24,6 +24,7 @@ class ViewController: UIViewController, MPMediaPickerControllerDelegate {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        configureMusic()
         configureNexturn()
         
         configurePayloadNotification()
@@ -55,6 +56,20 @@ class ViewController: UIViewController, MPMediaPickerControllerDelegate {
         presentViewController(mediaPickerController, animated: true, completion: nil)
     }
     
+    private func configureMusic() {
+        let userDefaults = NSUserDefaults.standardUserDefaults()
+        if let mediaItemCollectionArchivedData = userDefaults.objectForKey("mediaItemCollectionArchivedData") as? NSData {
+            let mediaItemCollection = NSKeyedUnarchiver.unarchiveObjectWithData(mediaItemCollectionArchivedData) as! MPMediaItemCollection
+            let item = mediaItemCollection.representativeItem
+            let title = item.valueForProperty(MPMediaItemPropertyTitle) as! String
+            let artistName = item.valueForProperty(MPMediaItemPropertyArtist) as! String
+            let albumName = item.valueForProperty(MPMediaItemPropertyAlbumTitle) as! String
+            
+            self.mediaItemCollection = mediaItemCollection
+            musicTitleLabel.text = title
+        }
+    }
+    
     private func configureNexturn() {
         let queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
         centralManager = CentralManager(delegate: self.centralManager, queue: queue, options: nil)
@@ -74,6 +89,11 @@ class ViewController: UIViewController, MPMediaPickerControllerDelegate {
         musicTitleLabel.text = title
         self.mediaItemCollection = mediaItemCollection
 
+        let userDefaults = NSUserDefaults.standardUserDefaults()
+        let mediaItemCollectionArchivedData = NSKeyedArchiver.archivedDataWithRootObject(mediaItemCollection)
+        userDefaults.setObject(mediaItemCollectionArchivedData, forKey: "mediaItemCollectionArchivedData")
+        userDefaults.synchronize()
+        
         dismissViewControllerAnimated(true, completion: nil)
     }
 
